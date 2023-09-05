@@ -1,9 +1,10 @@
-﻿namespace Template.Dtos
+﻿#region Usings
+using System.ComponentModel.DataAnnotations;
+using Template.Constants;
+#endregion
+
+namespace Template.Dtos
 {
-    #region Usings
-    using System.ComponentModel.DataAnnotations;
-    using Template.Constants;
-    #endregion
     public class UserDto
     {
         #region Properties
@@ -20,7 +21,7 @@
 
         //[Required(ErrorMessage = ErrorMsgs.EMPTY_PHONE)]
         [MinLength(Validations.PHONE_NUMBER_MIN_LENGTH)]
-        [MaxLength(Validations.PHONE_NUMBER_MAX_LENGTH)]               
+        [MaxLength(Validations.PHONE_NUMBER_MAX_LENGTH)]
         [Phone]
         public string PhoneNumber { get; set; } = string.Empty;
 

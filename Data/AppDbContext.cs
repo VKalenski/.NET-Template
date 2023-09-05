@@ -1,9 +1,10 @@
-﻿namespace Template.Data
+﻿#region Usings
+using Microsoft.EntityFrameworkCore;
+using Template.Data.Users;
+#endregion
+
+namespace Template.Data
 {
-    #region Usings
-    using Microsoft.EntityFrameworkCore;
-    using Template.Data.Users;
-    #endregion
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)

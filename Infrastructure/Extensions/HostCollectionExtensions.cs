@@ -1,9 +1,10 @@
-﻿namespace Template.Infrastructure.Extensions
+﻿#region Usings
+using Serilog;
+using Microsoft.Extensions.Hosting;
+#endregion
+
+namespace Template.Infrastructure.Extensions
 {
-    #region Usings
-    using Serilog;
-    using Microsoft.Extensions.Hosting;
-    #endregion
     public static class HostCollectionExtensions
     {
         #region Methods

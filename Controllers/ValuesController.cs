@@ -1,10 +1,10 @@
-﻿namespace Template.Controllers
-{
-    #region Usings
-    using Microsoft.AspNetCore.Authorization;
-    using Microsoft.AspNetCore.Mvc;
-    #endregion
+﻿#region Usings
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+#endregion
 
+namespace Template.Controllers
+{
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
