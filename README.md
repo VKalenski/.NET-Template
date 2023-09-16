@@ -1,8 +1,6 @@
-﻿# Template-ASP.NET-6.0
+﻿# DotNet-Template
 
-Темплейтът е разработен за ASP.NET-6.0
 
-### Включва следните предварително подготвени неща
 ```Constants```
 - **Roles.cs**
 - **Status.cs**
