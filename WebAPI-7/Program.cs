@@ -1,6 +1,7 @@
 #region Usings
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using WebAPI_7.Controllers;
 using WebAPI_7.HealthChecks;
 using WebAPI_7.Infrastructure.Extensions;
 #endregion
@@ -11,8 +12,7 @@ builder.Services.AddHealthChecks()
     .AddSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), tags: new[] { "database" })
     .AddCheck<MyHealthCheck>("MyHealthCheck", tags: new[] { "custom" });
 
-builder.Services.AddHealthChecksUI()
-    .AddInMemoryStorage();
+builder.Services.AddHealthChecksUI().AddInMemoryStorage();
 
 // Add services to the container.
 
@@ -24,12 +24,14 @@ builder.Services.AddSwaggerGen();
 builder.Host.AddLogger(builder.Configuration);
 
 var app = builder.Build();
+app.UseHttpLogging();
 
 app.MapHealthChecks("/health/custom", new HealthCheckOptions
 {
     Predicate = reg => reg.Tags.Contains("custom"),
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
 });
+
 
 app.MapHealthChecks("/health/secure", new HealthCheckOptions
 {

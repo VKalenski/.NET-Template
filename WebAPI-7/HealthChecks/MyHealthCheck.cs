@@ -14,12 +14,14 @@ namespace WebAPI_7.HealthChecks
             {
                 return Task.FromResult(HealthCheckResult.Healthy("Healthy result from MyHealthCheck"));
             }
-            else if (responseTime < 200)
+            else if (responseTime >= 100 && responseTime <= 200)
             {
                 return Task.FromResult(HealthCheckResult.Degraded("Degraded result from MyHealthCheck"));
             }
-
-            return Task.FromResult(HealthCheckResult.Unhealthy("Unhealthy result from MyHealthCheck"));
+            else
+            {
+                return Task.FromResult(HealthCheckResult.Unhealthy("Unhealthy result from MyHealthCheck"));
+            }            
         }
     }
 }
